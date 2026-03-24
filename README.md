@@ -1,42 +1,79 @@
 # Knox-Recipes Website
 
-This repository contains the source code for the Knox-Recipes website, a comprehensive web platform for sharing and accessing recipes.
+Static HTML site for **Webb School of Knoxville** student resources (“Knoxville Renowned Recipes”): schedules, handbooks, athletics, food/cafe, directories, and related pages.
 
-## Project Structure
+## Filesystem layout
 
 ```
 .
-├── index.html          # Main landing page
-├── css/               # Stylesheets
-├── js/                # JavaScript files
-├── templates/         # Template files
-├── img/              # Image assets
-├── food.html         # Food/recipes page
-├── contact.html      # Contact information
-├── story.html        # About/Story page
-├── cafe.html         # Cafe information
-├── accessibility.html # Accessibility information
-└── worklog.html      # Development work log
+├── CNAME
+├── LICENSE
+├── README.md
+├── .gitignore
+│
+├── css/
+│   ├── app.css
+│   ├── foundation.css
+│   └── foundation.min.css
+│
+├── img/
+│   ├── knox-recipes-logo-blue.svg
+│   └── knox-recipes-logo-white.svg
+│
+├── js/
+│   ├── app.js
+│   ├── site-search-index.js
+│   ├── site-search.js
+│   └── vendor/
+│       ├── foundation.js
+│       ├── foundation.min.js
+│       ├── jquery.js
+│       └── what-input.js
+│
+├── templates/
+│   ├── footer.html
+│   └── header.html
+│
+├── 2026-2027schedule.html
+├── High School copy.html
+├── Middle School.html
+├── accessibility.html
+├── agroup.html
+├── athletic.html
+├── bgroup.html
+├── cafe.html
+├── cgroup.html
+├── contactinformation.html
+├── curriculumguide.html
+├── currentschedule.html
+├── directory.html
+├── food.html
+├── handbook.html
+├── highlightsection.html
+├── index.html
+├── make-ups.html
+├── moreinformation.html
+├── sample.html
+├── school.html
+├── sourcesandcopyright.html
+├── sports.html
+├── story.html
+├── studentworklog.html
+└── tsaforms.html
 ```
 
-## Features
+`.git/` is omitted above; it holds Git metadata only.
 
-- Recipe sharing and browsing
-- Contact information
-- School-related content
-- Cafe information
-- Accessibility features
+## Stack
 
-## Development
-
-This is a static website built with HTML, CSS, and JavaScript. The project uses Git for version control.
+- HTML pages at the repo root share **Foundation** CSS/JS (`css/`, `js/vendor/`) and site scripts in `js/`.
+- **Site search** is implemented with `js/site-search.js` and `js/site-search-index.js`.
+- **Reusable chrome** lives in `templates/` (`header.html`, `footer.html`).
 
 ## License
 
-This project is licensed under the terms included in the LICENSE file.
-
-## Contact
-
-For more information, please visit the contact page or refer to the contact information provided in the website. 
+See `LICENSE`.
 
 ## Deployment
+
+`CNAME` is present for custom-domain hosting (e.g. GitHub Pages).
