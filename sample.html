@@ -1,0 +1,336 @@
+
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Anjali Kennedy">
+  <meta name="description" content="The Knoxville Makerspace">
+  <link rel="icon" type="image/x-icon" href="img/favicon.png">
+  
+  <title>Scrollable Example | Knoxville Makerspace</title>
+  
+  <link rel="stylesheet" href="https://use.typekit.net/fbe1sla.css">
+  <link rel="stylesheet" href="css/foundation.css">
+  <link rel="stylesheet" href="css/app.css">
+  
+  <style>
+    /* Additional styles for our scrollable demo */
+    html {
+      scroll-behavior: smooth; /* This gives a smooth scrolling effect */
+    }
+    
+    .section-container {
+      min-height: 100vh; /* Each section takes at least the full viewport height */
+      padding: 60px 0;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .age-question {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 80vh;
+    }
+    
+    .button-container {
+      margin-top: 2rem;
+    }
+    
+    .age-button {
+      margin: 0 1rem;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+    
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      background-color: #0074d9;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+    
+    .back-to-top:hover {
+      opacity: 1;
+    }
+    
+    .explanation-box {
+      background-color: #f0f8ff;
+      border: 2px solid #add8e6;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px auto;
+      max-width: 80%;
+      text-align: left;
+    }
+    
+    .code-highlight {
+      background-color: #f0f0f0;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+    ============================================
+    NAVIGATION AND HEADER SECTION
+    ============================================
+    This section contains:
+    - Mobile-responsive navigation menu
+    - Main navigation with dropdowns
+    - Site logo and branding
+    - Responsive breakpoints for different screen sizes
+  -->
+  
+  <div class="title-bar" data-responsive-toggle="example-animated-menu" data-hide-for="medium">
+    <a href="index.html"><img src="img/favicon.png" style="width: 50px;"></a>
+    <button class="menu-icon" type="button" data-toggle></button>
+  </div>
+  
+  <div class="top-bar" id="example-animated-menu" data-animate="hinge-in-from-top spin-out">
+    <a href="index.html" class="top-bar-logo"><img src="img/knox-recipes-logo-white.svg" alt="Knoxville Renowned Recipes Logo" class="logo"/></a>
+    <div class="top-bar-right">
+      <ul class=" menu  dropdown" data-dropdown-menu>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#age-question">Age Question</a></li>
+        <li><a href="#middle-school">Middle School</a></li>
+        <li><a href="#high-school">High School</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <header class="grid-x top-header align-middle">
+    <div class="small-12 medium-6 cell">
+      <a href="index.html"><img src="img/knoxmakerspace-logo.svg" class="logo" /></a>
+    </div> 
+  </header>
+  
+  <!-- 
+    ============================================
+    AGE QUESTION SECTION
+    ============================================
+    This section asks the user's age group and provides
+    links to scroll to the appropriate section
+  -->
+
+<img src="rban.jpg">
+
+
+  <section id="age-question" class="age-question section-container">
+    <div class="grid-container">
+      <h1 class="hero-text text-center">What age are you?</h1>
+      <p class="text-center">Select your age group to see programming tailored for you</p>
+      
+      <div class="explanation-box">
+        <h4>👋 Hey there! Here's how this page works:</h4>
+        <p>This page uses something called <strong>anchor links</strong> and <strong>ID attributes</strong> to create a cool scrolling effect. Think of it like a magic elevator that takes you to different floors of a building!</p>
+        
+        <p>Here's how it works in simple terms:</p>
+        <ol>
+          <li>Every section has a special name tag called an <span class="code-highlight">id</span>. For example, this section has <span class="code-highlight">id="age-question"</span></li>
+          <li>The buttons below have special links called <span class="code-highlight">href="#section-name"</span> that tell the page "I want to go to that section!"</li>
+          <li>When you click a button, the page scrolls smoothly to the section with the matching ID</li>
+        </ol>
+        
+        <p>It's like having a TV remote control where each button takes you to a different channel. The Middle School button takes you to the <span class="code-highlight">#middle-school</span> section, and the High School button takes you to the <span class="code-highlight">#high-school</span> section!</p>
+        
+        <p>Try it out by clicking the buttons below! 👇</p>
+      </div>
+      
+      <div class="button-container">
+        <!-- These anchor links will scroll to the specified section IDs -->
+        <a href="#middle-school" class="button age-button">Middle School</a>
+        <a href="#high-school" class="button age-button">High School</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 
+    ============================================
+    MIDDLE SCHOOL SECTION
+    ============================================
+    Content specifically for middle school students
+  -->
+  <section id="middle-school" class="section-container">
+    <div class="grid-container">
+      <h2 class="heavy-text dark-blue-text text-center">Middle School Programs</h2>
+      
+      <div class="grid-x grid-margin-x align-middle">
+        <div class="medium-6 small-12 cell"> 
+          <h3 class="heavy-text dark-blue-text">Designed for Grades 6-8</h3>
+          <p>Our middle school programs focus on foundational skills and exploration. Students can try different tools and technologies in a guided environment, developing important STEAM skills while having fun.</p>
+          <p>Activities include beginner robotics, introductory coding, basic electronics, and creative arts projects.</p>
+          
+          <!-- Link back to the age question -->
+          <a href="#age-question" class="button">Go Back to Question</a>
+        </div>
+        <div class="medium-6 cell">
+          <img src="img/Home2.jpeg" style="width: 100%;">
+        </div>
+      </div>
+      
+      <!-- Programs specifically for middle school -->
+      <div class="grid-x grid-margin-x grid-margin-y">
+        <div class="medium-4 small-12 column cell">
+          <div class="events-hero">
+            <h3 class="hero-text text-center heavy-text">Intro to Robotics</h3>
+            <div class="grid-container text-center hero-link-container">
+              <a href="#middle-school-robotics" class="cta-link feature-link hero-link">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="medium-4 small-12 column cell">
+          <div class="events-hero">
+            <h3 class="hero-text text-center heavy-text">Beginner Coding</h3>
+            <div class="grid-container text-center hero-link-container">
+              <a href="#middle-school-coding" class="cta-link feature-link hero-link">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="medium-4 small-12 column cell">
+          <div class="events-hero">
+            <h3 class="hero-text text-center heavy-text">Art & Crafts</h3>
+            <div class="grid-container text-center hero-link-container">
+              <a href="#middle-school-art" class="cta-link feature-link hero-link">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 
+    ============================================
+    HIGH SCHOOL SECTION
+    ============================================
+    Content specifically for high school students
+  -->
+  <section id="high-school" class="section-container">
+    <div class="grid-container">
+      <h2 class="heavy-text dark-blue-text text-center">High School Programs</h2>
+      
+      <div class="grid-x grid-margin-x align-middle">
+        <div class="medium-6 cell">
+          <img src="img/eventsandexperience8.jpeg" style="width: 100%;">
+        </div>
+        <div class="medium-6 small-12 cell"> 
+          <h3 class="heavy-text dark-blue-text">Designed for Grades 9-12</h3>
+          <p>Our high school programs build advanced skills and provide more independent project opportunities. Students can work on complex problems, collaborate on team challenges, and develop portfolio-worthy projects.</p>
+          <p>Activities include advanced robotics competitions, app development, digital fabrication, and entrepreneurship workshops.</p>
+          
+          <!-- Link back to the age question -->
+          <a href="#age-question" class="button">Go Back to Question</a>
+        </div>
+      </div>
+      
+      <!-- Programs specifically for high school -->
+      <div class="grid-x grid-margin-x grid-margin-y">
+        <div class="medium-4 small-12 column cell">
+          <div class="events-hero">
+            <h3 class="hero-text text-center heavy-text">Robotics Team</h3>
+            <div class="grid-container text-center hero-link-container">
+              <a href="#high-school-robotics" class="cta-link feature-link hero-link">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="medium-4 small-12 column cell">
+          <div class="events-hero">
+            <h3 class="hero-text text-center heavy-text">App Development</h3>
+            <div class="grid-container text-center hero-link-container">
+              <a href="#high-school-coding" class="cta-link feature-link hero-link">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="medium-4 small-12 column cell">
+          <div class="events-hero">
+            <h3 class="hero-text text-center heavy-text">3D Design & Printing</h3>
+            <div class="grid-container text-center hero-link-container">
+              <a href="#high-school-3d" class="cta-link feature-link hero-link">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Back to top button - another example of an anchor link -->
+  <a href="#age-question" class="back-to-top">↑ Top</a>
+  
+  <!-- 
+    ============================================
+    FOOTER SECTION
+    ============================================
+    This section contains:
+    - Site logo
+    - Copyright information
+    - Framework attribution
+    - Responsive grid layout
+  -->
+  <footer class="footer">
+    <div class="grid-container">
+      <div class="grid-x align-center align-middle" style="padding-top: 2%; padding-bottom: 2%;">
+        <div class="small-4 cell knox-column"></div>
+        <div class="small-4 cell knox-column">
+          <a href="index.html"><img src="img/knoxmakerspace-logo.svg" class="logo" /></a>
+        </div>
+        <div class="small-4 cell knox-column"></div>
+      </div>
+      <div class="grid-container">
+        <div class="grid-x align-center align-bottom">
+          <div class="small-12 cell">
+            <h6 class="dark-blue-text">The Knoxville Makerspace</h6>
+          </div>
+          <div class="small-12 cell">
+            <h6 class="dark-blue-text">© Copyright 2024 | All Rights Reserved.</h6>
+            <h6 class="dark-blue-text">Built with ❤️ using <a href="https://get.foundation/" target="_blank" class="footer-attribute-link">Foundation 6</a></h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 
+    ============================================
+    EXPLANATION SECTION
+    ============================================
+    This section explains how anchor links work for beginners
+  -->
+  <div style="background-color: #f8f9fa; padding: 20px; margin-top: 20px; border-radius: 5px;">
+    <h3>How Anchor Links Work</h3>
+    <p>This example demonstrates anchor links with ID-based navigation. Here's how it works:</p>
+    <ol>
+      <li><strong>Create an ID attribute:</strong> Add <code>id="section-name"</code> to any HTML element you want to link to</li>
+      <li><strong>Create a link to the ID:</strong> Use <code>&lt;a href="#section-name"&gt;Link Text&lt;/a&gt;</code> to create a link that jumps to that section</li>
+      <li><strong>Smooth scrolling:</strong> Add <code>scroll-behavior: smooth;</code> in CSS to create a smooth scrolling effect</li>
+    </ol>
+    <p>Examples from this page:</p>
+    <ul>
+      <li><code>&lt;section id="age-question"&gt;...&lt;/section&gt;</code> - Creates a target section</li>
+      <li><code>&lt;a href="#middle-school"&gt;Middle School&lt;/a&gt;</code> - Creates a link to the Middle School section</li>
+      <li><code>&lt;a href="#high-school"&gt;High School&lt;/a&gt;</code> - Creates a link to the High School section</li>
+      <li>The "Back to Top" button uses <code>&lt;a href="#age-question" class="back-to-top"&gt;↑ Top&lt;/a&gt;</code></li>
+    </ul>
+    <p>This technique allows you to create a single-page application feel without requiring JavaScript.</p>
+  </div>
+
+<script src="js/vendor/jquery.js"></script>
+<script src="js/vendor/what-input.js"></script>
+<script src="js/vendor/foundation.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html> 

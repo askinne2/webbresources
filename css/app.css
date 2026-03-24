@@ -1,0 +1,547 @@
+/* app.css */
+
+/*
+*
+* VARIABLES & ROOT STYLES
+* This section contains custom properties and root-level styles
+*
+*/
+
+:root {
+	/* Color Variables */
+	--knox-white: #ffffff;      /* Pure white */
+	--knox-lt-yellow: #FBF1A0; /* Light yellow */
+	--knox-yellow: #F9E760;    /* Bright yellow */
+	--knox-lt-blue: #054785;   /* Light blue */
+	--knox-gray: #BABCB4;      /* Gray */
+	--knox-lt-gray: #F5F5F5;   /* Light gray */
+	--knox-blue: #015325;      /* Dark blue */
+	--knox-black: #222222;     /* Almost black */
+
+	/* Spacing Variables */
+	--spacing-xs: 0.25rem;
+	--spacing-sm: 0.5rem;
+	--spacing-md: 1rem;
+	--spacing-lg: 2rem;
+	--spacing-xl: 4rem;
+
+	/* Border Radius Variables */
+	--radius-sm: 5px;
+	--radius-md: 10px;
+	--radius-lg: 20px;
+
+	/* Transition Variables */
+	--transition-fast: 0.2s ease;
+	--transition-normal: 0.3s ease;
+	--transition-slow: 0.5s ease;
+	
+	/* Shadow Variables */
+	--shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+	--shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+	--shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Base HTML and Body Styles */
+html, body {
+	color: var(--knox-black);	
+	font-family: "tenez", sans-serif;
+	font-weight: 700;
+	font-style: normal;
+	line-height: 1.5; /* Improved line height for better readability */
+	background-color: transparent;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+}
+
+/* Typography Scale */
+h1, h2, h3, h4, h5, h6, p {
+	font-family: "tenez", sans-serif;
+	margin-bottom: var(--spacing-md);
+}
+
+h1 {
+	font-size: clamp(2rem, 5vw, 3rem);
+	font-weight: 900;
+	color: var(--knox-blue);
+}
+
+h2 {
+	font-size: clamp(1.75rem, 4vw, 2.5rem);
+	font-weight: 900;
+	color: var(--knox-blue);
+}
+
+h3 {
+	font-size: clamp(1.5rem, 3vw, 1.75rem);
+	font-weight: 700;
+}
+
+h4, h5 {
+	font-size: clamp(1.25rem, 2vw, 1.5rem);
+	font-weight: 700;
+	color: var(--knox-lt-blue);
+}
+
+p {
+	font-size: clamp(1rem, 1.5vw, 1.25rem);
+	font-weight: 400;
+	line-height: 1.6;
+	color: var(--knox-black);
+}
+
+/* Link Styles */
+a {
+	color: var(--knox-blue);
+	text-decoration: none;
+	transition: color var(--transition-fast);
+}
+
+a:hover {
+	color: var(--knox-lt-blue);
+}
+
+/* Image Styles */
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: var(--radius-md);
+	border: none;
+}
+
+/* Logo Styles */
+.top-bar-logo {
+	width: min(250px, 85%);
+	text-align: left;
+}
+
+/*
+*
+* LAYOUT & GRID
+* This section contains layout and grid-related styles
+*
+*/
+
+/* Grid Container Styles */
+.grid-container {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2% var(--spacing-md);
+}
+
+.grid-container1 {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: var(--spacing-md);
+	padding: var(--spacing-md);
+}
+
+.grid-item {
+	background-color: var(--knox-white);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	aspect-ratio: 1;
+	overflow: hidden;
+	aspect-ratio: 16/9;
+}
+
+.grid-item img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.grid-item img:hover {
+	transform: scale(1.05);
+	box-shadow: var(--shadow-md);
+}
+
+/* Section Container Styles */
+.section-container {
+	padding: var(--spacing-xl) 0;
+	border-bottom: 1px solid var(--knox-lt-gray);
+}
+
+/* Age Question Styles */
+.age-question {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	min-height: 80vh;
+	padding: var(--spacing-lg);
+}
+
+/*
+*
+* COMPONENTS
+* This section contains reusable component styles
+*
+*/
+
+/* Button Styles */
+.button-container {
+	margin-top: var(--spacing-lg);
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--spacing-md);
+	justify-content: center;
+}
+
+.age-button,
+.middle-school,
+.high-school {
+	margin: 0 var(--spacing-md);
+	padding: var(--spacing-md) var(--spacing-lg);
+	font-size: clamp(1rem, 1.2vw, 1.2rem);
+	font-weight: bold;
+	border-radius: var(--radius-sm);
+	transition: all var(--transition-normal);
+	background-color: var(--knox-blue);
+	color: var(--knox-white);
+	box-shadow: var(--shadow-sm);
+	transform: translateY(0);
+}
+
+.age-button:hover,
+.middle-school:hover,
+.high-school:hover {
+	background-color: var(--knox-lt-blue);
+	color: var(--knox-white);
+	box-shadow: var(--shadow-md);
+	transform: translateY(-2px);
+}
+
+/* Back to Top Button */
+.back-to-top {
+	position: fixed;
+	bottom: var(--spacing-lg);
+	right: var(--spacing-lg);
+	padding: var(--spacing-sm) var(--spacing-md);
+	background-color: var(--knox-blue);
+	color: var(--knox-white);
+	border-radius: var(--radius-sm);
+	text-decoration: none;
+	font-weight: bold;
+	opacity: 0.7;
+	transition: opacity var(--transition-normal);
+	z-index: 1000;
+}
+
+.back-to-top:hover {
+	opacity: 1;
+}
+
+/* Explanation Box Styles */
+.explanation-box,
+.explanation-box1 {
+	background-color: var(--knox-white);
+	padding: var(--spacing-lg);
+	border-radius: var(--radius-md);
+	box-shadow: var(--shadow-sm);
+	transition: all var(--transition-normal);
+	margin: var(--spacing-md) 0;
+}
+
+.explanation-box:hover,
+.explanation-box1:hover {
+	box-shadow: var(--shadow-md);
+	transform: translateY(-2px);
+}
+
+ .explanation-box3 {
+      background-color: #transparent;
+      border: 3px solid #0A2D4C;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px auto;
+      max-width: 90%;
+      text-align: left;
+    }
+
+/* Code Highlight Styles */
+.code-highlight {
+	background-color: var(--knox-lt-gray);
+	padding: var(--spacing-xs) var(--spacing-sm);
+	border-radius: var(--radius-sm);
+	font-family: monospace;
+}
+
+/*
+*
+* NAVIGATION
+* This section contains navigation-related styles
+*
+*/
+
+/* Top Bar Styles */
+.top-bar,
+.top-bar ul,
+.title-bar {
+	background-color: var(--knox-blue);
+	justify-content: space-between;
+	align-items: center;
+	padding: var(--spacing-sm) var(--spacing-md);
+	z-index: 999;
+	box-shadow: var(--shadow-sm);
+	transition: box-shadow var(--transition-normal);
+}
+
+.top-bar:hover {
+	box-shadow: var(--shadow-md);
+}
+
+/* Dropdown Menu Styles */
+.dropdown.menu > li.is-dropdown-submenu-parent > a::after {
+	color: var(--knox-white);
+	border-color: var(--knox-white) transparent transparent;
+}
+
+.dropdown .is-dropdown-submenu a,
+.dropdown.menu > li.is-dropdown-submenu-parent > a {
+	color: var(--knox-white);
+}
+
+.dropdown .is-dropdown-submenu a:hover,
+.dropdown.menu > li.is-dropdown-submenu-parent > a:hover {
+	color: var(--knox-gray);
+}
+
+.menu input,
+.menu select,
+.menu a,
+.menu button {
+	color: var(--knox-white);
+}
+
+.menu a:hover {
+	color: var(--knox-gray);
+}
+
+/* Navigation Enhancement */
+.menu a {
+	position: relative;
+	transition: color var(--transition-normal);
+}
+
+.menu a::after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 2px;
+	bottom: -2px;
+	left: 0;
+	background-color: var(--knox-lt-blue);
+	transition: width var(--transition-normal);
+}
+
+.menu a:hover::after {
+	width: 100%;
+}
+
+/*
+*
+* HERO SECTIONS
+* This section contains hero-related styles
+*
+*/
+
+/* Hero Base Styles */
+.hero,
+.hero-not-home,
+.events-hero {
+	background-color: var(--knox-blue);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
+}
+
+.hero {
+	padding: 10% 0;
+	min-height: 50vh;
+}
+
+.hero-not-home {
+	padding: 2% 0;
+	min-height: 20vh;
+}
+
+.events-hero {
+	padding: 5% 0;
+	min-height: 30vh;
+}
+
+/* Hero Wrap Styles */
+.hero1-wrap,
+.hero2-wrap {
+	position: relative;
+}
+
+.hero1-wrap::after,
+.hero2-wrap::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0.1;
+	mix-blend-mode: normal;
+	background-image: url('../img/webb1.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	z-index: 0;
+}
+
+.hero-text {
+	color: var(--knox-white);
+	position: relative;
+	z-index: 2;
+	opacity: 0;
+	transform: translateY(20px);
+	animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/*
+*
+* FOOTER
+* This section contains footer-related styles
+*
+*/
+
+.footer {
+	background-color: var(--knox-lt-gray);
+	padding: var(--spacing-lg);
+	text-align: center;
+	margin-top: var(--spacing-xl);
+}
+
+.footer-attribute-link {
+	text-decoration: none;
+	font-weight: 900;
+	color: var(--knox-blue);
+}
+
+.footer-attribute-link:hover {
+	text-decoration: underline;
+}
+
+/*
+*
+* MEDIA QUERIES
+* This section contains responsive breakpoints
+*
+*/
+
+/* Small devices (phones, 576px and up) */
+@media (max-width: 576px) {
+	.grid-container1 {
+		grid-template-columns: 1fr;
+	}
+
+	.explanation-box,
+	.explanation-box1 {
+		width: 95%;
+		padding: var(--spacing-md);
+	}
+
+	.button-container {
+		flex-direction: column;
+	}
+
+	.age-button,
+	.middle-school,
+	.high-school {
+		width: 100%;
+		margin: var(--spacing-xs) 0;
+	}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	.grid-container1 {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	.grid-container1 {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+	.grid-container {
+		max-width: 1140px;
+	}
+}
+
+/* Home page site search */
+.site-search-section {
+	padding-top: var(--spacing-lg);
+	padding-bottom: var(--spacing-lg);
+}
+
+.site-search-section .input-group {
+	margin-bottom: var(--spacing-sm);
+	box-shadow: var(--shadow-sm);
+	border-radius: var(--radius-md);
+	overflow: hidden;
+}
+
+.site-search-section .input-group-field {
+	margin-bottom: 0;
+	font-weight: 600;
+}
+
+.site-search-hint {
+	font-size: 0.95rem;
+	color: var(--knox-blue);
+	margin-bottom: var(--spacing-md);
+	font-weight: 600;
+}
+
+.site-search-results {
+	min-height: 1rem;
+}
+
+.site-search-results-list {
+	margin: 0;
+	text-align: left;
+	max-width: 100%;
+}
+
+.site-search-results-item {
+	margin-bottom: var(--spacing-xs);
+}
+
+.site-search-results-link {
+	display: block;
+	padding: var(--spacing-sm) var(--spacing-md);
+	background: var(--knox-lt-gray);
+	color: var(--knox-blue);
+	border-radius: var(--radius-sm);
+	font-weight: 700;
+	transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.site-search-results-link:hover,
+.site-search-results-link:focus {
+	background: var(--knox-lt-yellow);
+	color: var(--knox-black);
+	outline: none;
+}
