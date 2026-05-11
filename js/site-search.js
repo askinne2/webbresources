@@ -3,17 +3,31 @@
 
   var DEBOUNCE_MS = 200;
 
+  // Filler words dropped from the user's query so natural phrases like
+  // "Chess and Strategy Games" or "Fashion for a Cause" still match.
+  // Kept tiny on purpose; nothing here is content-bearing.
+  var STOPWORDS = {
+    and: 1, '&': 1, the: 1, of: 1, 'for': 1,
+    a: 1, an: 1, to: 1, 'in': 1, on: 1, 'with': 1
+  };
+
   function normalize(s) {
     return (s || '').toLowerCase().replace(/\s+/g, ' ').trim();
   }
 
   function haystackFor(item) {
-    return normalize(item.title + ' ' + (item.keywords || ''));
+    return normalize(
+      (item.title || '') + ' ' +
+      (item.keywords || '') + ' ' +
+      (item.text || '')
+    );
   }
 
   function matchesQuery(haystack, queryNorm) {
     if (!queryNorm) return false;
-    var words = queryNorm.split(' ').filter(Boolean);
+    var words = queryNorm.split(' ').filter(function (w) {
+      return w && !STOPWORDS[w];
+    });
     if (!words.length) return false;
     for (var i = 0; i < words.length; i++) {
       if (haystack.indexOf(words[i]) === -1) return false;
