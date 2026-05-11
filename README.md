@@ -70,6 +70,26 @@ Static HTML site for **Webb School of Knoxville** student resources (“Knoxvill
 - **Site search** is implemented with `js/site-search.js` and `js/site-search-index.js`.
 - **Reusable chrome** lives in `templates/` (`header.html`, `footer.html`).
 
+## Site search
+
+The home page search is a tiny client-side matcher in `js/site-search.js` that filters a static index at `js/site-search-index.js`.
+
+`js/site-search-index.js` is **generated**. Do not edit it by hand. To refresh it after changing any page content (club lists, coach names, room numbers, etc.):
+
+```bash
+node scripts/build-search-index.js
+```
+
+That reads each HTML file listed in the `PAGES` array of `scripts/build-search-index.js`, strips chrome (head/header/footer/scripts/styles) and HTML tags, and writes the regenerated index.
+
+To verify the search behaves correctly:
+
+```bash
+node scripts/test-search.js
+```
+
+The harness exits non-zero on any failed `(query → expected page)` assertion. Add new assertions there when you add new searchable content.
+
 ## License
 
 See `LICENSE`.
